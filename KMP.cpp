@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define ll long long 
+#define ll long long
 #define N '\n'
 #define Fast ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
@@ -55,7 +55,7 @@ void solve(ll tst)
     cout<<"Number of Occurrences: "<<number_of_occurrences<<N;
     cout<<"The Indexes where the pattern is found in Text: "<<N;
 
-    for(auto it:indexes)
+    for(ll it:indexes)
     {
         cout<<it<<" ";
     }
