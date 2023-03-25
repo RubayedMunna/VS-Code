@@ -41,9 +41,23 @@ void solve(ll tst)
 
     prefix_function(str);
 
+    ll number_of_occurrences=0;
+    vector<ll> indexes;
+
     for(ll i=0;i<pi.size();i++)
     {
-        cout<<pi[i]<<" ";
+        if(pi[i]==n)
+        {
+            number_of_occurrences++;
+            indexes.push_back(i-2*);
+        }
+    }
+    cout<<"Number of Occurrences: "<<number_of_occurrences<<N;
+    cout<<"The Indexes where the pattern is found in Text: "<<N;
+
+    for(auto it:indexes)
+    {
+        cout<<it<<" ";
     }
     cout<<N;
 }
