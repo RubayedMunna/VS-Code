@@ -17,7 +17,7 @@ ll Bin_Expo(ll a,ll b)
     ll x=Bin_Expo(a,b/2);
 
     ll y=(x*x)%mod;
-
+  
     if(b%2)
     {
         y=(y*a)%mod;
