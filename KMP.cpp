@@ -49,7 +49,7 @@ void solve(ll tst)
         if(pi[i]==n)
         {
             number_of_occurrences++;
-            indexes.push_back(i-2*);
+            indexes.push_back(i-2*n+1);
         }
     }
     cout<<"Number of Occurrences: "<<number_of_occurrences<<N;
