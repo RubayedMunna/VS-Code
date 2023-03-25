@@ -4,11 +4,13 @@ using namespace std;
 #define N '\n'
 #define Fast ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
-vector<ll> prefix_function(string str)
+vector<ll>pi;
+
+void prefix_function(string str)
 {
     ll n=(ll)str.length();
 
-    vector<ll>pi(n);
+    pi.assign(n,0);
 
     for(ll i=1;i<n;i++)
     {
@@ -21,22 +23,27 @@ vector<ll> prefix_function(string str)
 
         if(str[i]==str[j])
         {
-            pi[i]=j;
+            j++;
         }
+        pi[i]=j;
     }
-    return pi;
 }
 
 void solve(ll tst)
 {
-    string str;
-    cin>>str;
+    string s,t;
+    cin>>t>>s;
 
-    vector<ll>v=prefix_function(str);
+    ll n=s.size();
+    ll m=t.size();
 
-    for(ll i=0;i<v.size();i++)
+    string str=s+"$"+t;
+
+    prefix_function(str);
+
+    for(ll i=0;i<pi.size();i++)
     {
-        cout<<v[i]<<" ";
+        cout<<pi[i]<<" ";
     }
     cout<<N;
 }
@@ -44,7 +51,7 @@ void solve(ll tst)
 int main()
 {
     ll t=1;
-    cin>>t;
+    //cin>>t;
     ll tst=0;
     while(t--)
     {
