@@ -99,8 +99,6 @@ int main()
 
     buildSA(Text);
 
-    cout<<"Suffix Array: "<<N;
-
     for(ll i=0;i<n;i++)
     {
         cout<<SA[i]<<" ";
@@ -118,7 +116,7 @@ int main()
         ll idx=Search(Pat);
 
 
-        // cout<<idx<<N;
+        cout<<idx<<N;
 
         if(idx==-1)
         {
