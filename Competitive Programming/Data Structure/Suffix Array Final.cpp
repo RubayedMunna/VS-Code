@@ -55,6 +55,20 @@ void buildSA(string str)
     }
 }
 
+void buildLCP()
+{
+    
+    for(ll i=0,k=0;i<n;i++) if(pos[i]!=n-1)
+    {
+        for(ll j=SA[pos[i]+1];str[i+k]==str[j+k];)
+        {
+            k++;
+            lcp[pos[i]]=k;
+            if(k)--k;
+        }
+    }
+}
+
 int main()
 {
 
@@ -66,6 +80,14 @@ int main()
     for(ll i=0;i<n;i++)
     {
         cout<<SA[i]<<" ";
+    }
+    cout<<N;
+    cout<<"&&&"<<N;
+    buildLCP();
+    cout<<"&&&"<<N;
+    for(ll i=0;i<n;i++)
+    {
+        cout<<lcp[i]<<" ";
     }
     cout<<N;
 
