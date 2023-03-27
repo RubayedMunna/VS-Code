@@ -15,7 +15,47 @@ vector<ll>v[maxn];
 
 void solve(ll tst)
 {
-    
+    ll n;
+    cin>>n;
+
+    ll a[n+10],b[n+10],c[n+10],d[n+10];
+
+    for(ll i=1;i<=n;i++)
+    {
+        cin>>a[i]>>b[i];
+        c[i]=a[i]*b[i];
+    }
+
+
+    ll cnt=0;
+
+
+    ll gcd,lcm;
+
+    for(ll i=1;i<=n;i++)
+    {
+        if(i==1)
+        {
+            cnt++;
+            gcd=c[i];
+            lcm=b[i];
+            continue;
+        }
+
+        gcd=__gcd(gcd,c[i]);
+        lcm=(lcm*b[i])/__gcd(lcm,b[i]);
+
+        if(gcd%lcm!=0)
+        {
+            cnt++;
+            gcd=c[i];
+            lcm=b[i];
+        }
+    }
+
+    cout<<cnt<<N;
+
+
 }
 
 int main()

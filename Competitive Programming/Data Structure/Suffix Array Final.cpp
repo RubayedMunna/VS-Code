@@ -94,8 +94,9 @@ int main()
 {
 
     cout<<"Enter Text"<<N;
-
-    cin>>Text; Text=Text+"$";
+    getline(cin,Text);
+    //cin>>Text; 
+    Text=Text+"$";
 
     buildSA(Text);
 
@@ -113,7 +114,8 @@ int main()
     while(q--)
     {
         string Pat;
-        cin>>Pat;
+        getline(cin,Pat);
+        //cin>>Pat;
 
         ll idx=Search(Pat);
 
