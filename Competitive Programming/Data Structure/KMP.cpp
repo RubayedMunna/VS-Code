@@ -6,6 +6,7 @@ using namespace std;
 
 vector<ll>pi;
 
+
 void prefix_function(string str)
 {
     ll n=(ll)str.length();
