@@ -111,7 +111,8 @@ int main()
     cout<<"Enter Number of Queries"<<N;
     ll q;
     cin>>q;
-    while(q--)
+    cin.ignore();
+    while (q--)
     {
         string Pat;
         getline(cin,Pat);
