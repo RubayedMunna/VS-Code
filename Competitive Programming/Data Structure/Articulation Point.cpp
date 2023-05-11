@@ -95,10 +95,12 @@ public:
 void solve(ll tst)
 {
     ll n;
+    cout << "Enter The Number of Vertices: ";
     cin >> n;
     ArticulationPoint G(n);
 
     ll m;
+    cout << "Enter The Number of Edges: ";
     cin >> m;
     for (ll i = 1; i <= m;i++)
     {
@@ -108,9 +110,10 @@ void solve(ll tst)
     }
 
     vector<ll> result;
+    //result.resize(n + 10);
     result = G.findArticulationPoint();
-
-    for(auto it:result)
+    cout << "Articulations are: ";
+    for (auto it : result)
     {
         cout << it << " ";
     }
@@ -119,7 +122,7 @@ void solve(ll tst)
 int main()
 {
     ll t = 1;
-    cin >> t;
+    //cin >> t;
     ll tst = 0;
     while(t--)
     {

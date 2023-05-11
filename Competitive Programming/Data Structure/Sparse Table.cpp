@@ -38,16 +38,23 @@ ll get(ll lt,ll rt)
 int main()
 {
     ll n;
-    cin>>n;
-    for (ll i = 1;i<=n;i++)
+    cout << "Enter Number of Elements: " << N;
+
+    cin >> n;
+    cout << "Enter Elements: " << N;
+    for (ll i = 1; i <= n; i++)
     {
         cin >> aa[i];
     }
 
     build(n);
-
-    ll l, r;
-    cin>>l>>r;
-    cout << get(l, r) << N;
-    
+    cout<<"Number of Queries: "<<N;
+    ll query;
+    cin >> query;
+    while(query--)
+    {
+        ll l, r;
+        cin>>l>>r;
+        cout << get(l, r) << N;
+    }
 }
