@@ -7,55 +7,46 @@ using namespace std;
     cin.tie(NULL);                    \
     cout.tie(NULL);
 
-vector<ll>RabinKarp(string const& s,string const& t)
-{
-    const ll p = 37;
-    const ll m = 1e9 + 7;
-
-    ll ls = (ll)s.size();
-    ll lt = (ll)t.size();
-
-    vector<ll> p_pow(max(ls, lt));
-
+/// Pattern ,        Text
+vector<int>RabinKarp(string const& s, string const& t) {
+    const int p = 37;
+    const int m = 1e9 + 7;
+    int ls = (int)s.size(), lt = (int)t.size();
+    int T =lt;
+    vector<long long> p_pow(max(ls, lt));
     p_pow[0] = 1;
+    for (int i = 1; i < (int)p_pow.size(); i++)
+        p_pow[i] = (p_pow[i-1] * p) % m;
 
-    for (ll i = 1; i < p_pow.size();i++)
-    {
-        p_pow[i] = (p_pow[i - 1] * p) % m;
-    }
+    vector<long long>h(lt + 1, 0);
+    for (int i = 0; i < lt; i++)
+        h[i+1] = (h[i] + (t[i] - 'a' + 1) * p_pow[i]) % m;
+    long long h_s = 0;
+    for (int i = 0; i < ls; i++)
+        h_s = (h_s + (s[i] - 'a' + 1) * p_pow[i]) % m;
 
-    vector<ll> h(lt + 1, 0);
-
-    for (ll i = 0;i<lt;i++)
-    {
-        h[i + 1] = (h[i] + (t[i] - 'a' + 1) * pow[i]) % m;
-    }
-
-    vector<ll> occurences;
-
-    for (ll i = 0; i + ls - 1 < T;i++)
-    {
-        ll cur_h = (h[i + ls] + m - h[i]) % m;
-        if(cur_h==h_s*p_pow[i]%m)
-        {
+    vector<int>occurences;
+    for (int i = 0; i + ls - 1 < T; i++) {
+        long long cur_h = (h[i+ls] + m - h[i]) % m;
+        if (cur_h == h_s * p_pow[i] % m)
             occurences.emplace_back(i);
-        }
     }
     return occurences;
 }
 
-void solve(ll tst)
-{
-
-}
 
 int main()
 {
-    ll t = 1;
-    cin >> t;
-    ll tst = 0;
-    while(t--)
-    {
-        solve(++tst);
-    }
+    string Text="abaabaaabaaab";
+    string Pattern ="aba";
+    cout << "Enter The Text: ";
+    getline(cin, Text);
+    cout << "Enter The Pattern: ";
+    getline(cin, Pattern);
+    vector<int>found = RabinKarp(Pattern,Text);
+    cout << "The Number of occurrences of \"" << Pattern << "\" is " << found.size() << N;
+    //Mucout<<found.size()<<" Jaygay pawa gese\n";
+    cout<<"The Indexes Are : ";
+    for(int i=0;i<found.size();i++)cout<<found[i]<<" ";
+    cout<<endl;
 }
