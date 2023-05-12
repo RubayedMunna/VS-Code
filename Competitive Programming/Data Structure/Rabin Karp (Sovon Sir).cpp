@@ -37,8 +37,8 @@ vector<int>RabinKarp(string const& s, string const& t) {
 
 int main()
 {
-    string Text="abaabaaabaaab";
-    string Pattern ="aba";
+    string Text;
+    string Pattern;
     cout << "Enter The Text: ";
     getline(cin, Text);
     cout << "Enter The Pattern: ";

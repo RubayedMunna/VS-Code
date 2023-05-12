@@ -53,7 +53,7 @@ ll Query(ll l,ll r)
         {
             for(ll i=rn*(rb-1)+1; i<=rn*rb; i++)
             {
-                arr[i]=lazy[lb];
+                arr[i]=lazy[rb];
             }
             lazy[rb]=0;
             block[rb]=LLONG_MAX;
@@ -74,9 +74,6 @@ ll Query(ll l,ll r)
             mn=min(mn,arr[i]);
         }
     }
-
-
-
     return mn;
 }
 ll update(ll l,ll r,ll value)
@@ -176,7 +173,8 @@ int main()
         if(type==1)
         {
             ll l,r;
-            cin>>l>>r;
+            cout << "Enter left and right index: ";
+            cin >> l >> r;
             ll t=(l-1)/rn+1;
 
             if(t>rn)
@@ -197,7 +195,8 @@ int main()
         else if(type==2)
         {
             ll l,r,value;
-            cin>>l>>r>>value;
+            cout << "Enter left and right index and value";
+            cin >> l >> r >> value;
             ll t=(l-1)/rn+1;
             if(t>rn)
             {
