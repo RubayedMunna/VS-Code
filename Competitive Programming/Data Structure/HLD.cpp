@@ -9,11 +9,11 @@ using namespace std;
 
 const ll maxn = 1e5 + 10;
 vector<ll> adj[maxn + 2];
-ll sub[maxn + 2], ent[maxn + 2], tim, anc[maxn + 2], par[maxn + 2], lev[maxn + 2];
+ll siz[maxn + 2], ent[maxn + 2], tim, head[maxn + 2], par[maxn + 2], lev[maxn + 2];
 
 void dfs(ll n,ll p,ll l)
 {
-    sub[n] = 1, par[n] = p, lev[n] = l;
+    siz[n] = 1, par[n] = p, lev[n] = l;
 
     for(auto x:adj[n])
     {
@@ -22,7 +22,7 @@ void dfs(ll n,ll p,ll l)
             continue;
         }
         dfs(x, n, l + 1);
-        sub[n] += sub[x];
+        siz[n] += siz[x];
     }
 }
 
@@ -37,16 +37,16 @@ void hld(ll n,ll p)
         {
             continue;
         }
-        if(sub[x]>mx)
+        if(siz[x]>mx)
         {
-            mx = sub[x];
+            mx = siz[x];
             b = x;
         }
     }
 
     if(b!=-1)
     {
-        anc[b] = anc[n];
+        head[b] = head[n];
         hld(b, n);
     }
 
@@ -56,7 +56,7 @@ void hld(ll n,ll p)
         {
             continue;
         }
-        anc[x] = x;
+        head[x] = x;
         hld(x, n);
     }
 }
@@ -68,18 +68,19 @@ ll hQry(ll u,ll v)
         swap(u, v);
     }
 
-    if(anc[u]==anc[v])
+    if(head[u]==head[v])
     {
         // return qry(ent[v],ent[u]);
+        
     }
 
-    if(lev[anc[u]]<lev[anc[v]])
+    if(lev[head[u]]<lev[head[v]])
     {
         swap(u, v);
     }
-    // qry(ent[anc[u]],ent[u])
+    // qry(ent[head[u]],ent[u])
 
-    u = par[anc[u]];
+    u = par[head[u]];
 }
 
 void solve(ll tst)
@@ -93,7 +94,7 @@ void solve(ll tst)
 int main()
 {
     ll t=1;
-    cin>>t;
+    //cin>>t;
     ll tst=0;
     while(t--)
     {
