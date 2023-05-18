@@ -41,12 +41,22 @@ int main()
     string Pattern;
     cout << "Enter The Text: ";
     getline(cin, Text);
-    cout << "Enter The Pattern: ";
-    getline(cin, Pattern);
-    vector<int>found = RabinKarp(Pattern,Text);
-    cout << "The Number of occurrences of \"" << Pattern << "\" is " << found.size() << N;
-    //Mucout<<found.size()<<" Jaygay pawa gese\n";
-    cout<<"The Indexes Are : ";
-    for(int i=0;i<found.size();i++)cout<<found[i]<<" ";
-    cout<<endl;
+    cout<<"Enter Number of Query: "<<N;
+    ll query;
+    cin>>query;
+    while(query--)
+    {
+        cout << "Enter The Pattern: ";
+        getline(cin, Pattern);
+        vector<int>found = RabinKarp(Pattern,Text);
+        
+        cout << "The Number of occurrences of \"" << Pattern << "\" is " << found.size() << N;
+        
+        cout<<"The Indexes Are : ";
+        for(int i=0;i<found.size();i++)
+        {
+            cout<<found[i]<<" ";
+        }
+        cout << N;
+    }
 }

@@ -83,16 +83,19 @@ public:
 
 void solve(ll tst)
 {
+    cout << "Enter Pattern: " << N;
     string pattern;
     getline(cin, pattern);
     KMP kmp(pattern);
 
     ll numberofsearch;
+    cout<<"Enter Number of Query: ";
     cin >> numberofsearch;
     cin.ignore();
     while (numberofsearch--)
     {
         string text;
+        cout << "Enter Text: " << N;
         getline(cin, text);
         vector<ll> indexes;
         indexes.resize(text.size() + 10, 0);
@@ -103,7 +106,7 @@ void solve(ll tst)
         {
             cout << it << " ";
         }
-        cout << N;
+        cout << N<<N;
     }
 }
 int main()

@@ -1,9 +1,3 @@
-// Mahfuz Anam
-// Department of Computer Science and Engineering, Jahangirnagar University
-// 49th Batch
-
-// Implementation of LCA using SPARSE TABLE
-
 #include<bits/stdc++.h>
 #define ll long long
 #define ull unsigned long long

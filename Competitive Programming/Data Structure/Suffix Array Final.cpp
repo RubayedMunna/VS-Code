@@ -108,7 +108,7 @@ int main()
     }
     cout<<N;
 
-    cout<<"Enter Number of Queries"<<N;
+    cout<<"Enter Number of Queries: "<<N;
     ll q;
     cin>>q;
     cin.ignore();
